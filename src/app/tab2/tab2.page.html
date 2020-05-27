@@ -1,17 +1,49 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Lotes Pendientes por Subir
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button  [routerLink]="['/tabs/lote']">
+    <ion-icon name="arrow-redo-circle-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
+      <ion-title size="large">Lotes Pendientes</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-card>
+    <!-- <img src="./madison.jpg" /> -->
+    <ion-item>
+      <ion-icon name="pin" slot="start"></ion-icon>
+      <ion-button fill="outline" slot="end">Subir</ion-button>
+      <ion-card-header>
+        <ion-card-subtitle>Destination</ion-card-subtitle>
+        <ion-card-title>Madison, WI</ion-card-title>
+      </ion-card-header>
+    </ion-item>
+    
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">cedula</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Fecha de transferencia</ion-label>
+        <ion-input ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">* info 3</ion-label>
+        <ion-input> </ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>

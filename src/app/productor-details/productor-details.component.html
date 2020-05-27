@@ -1,0 +1,110 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="checkmark-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>productor</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <form [formGroup]="productor"  (ngSubmit)="ProductorForm()">
+    <ion-item>
+      <ion-label position="floating">Apellidos del o la productora</ion-label>
+      <ion-input formControlName="apellidos_productor">
+
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">¿Nombres del o la productora?</ion-label>
+      <ion-input formControlName="nombres_productor">
+
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Número de Cédula</ion-label>
+      <ion-input type="number" formControlName="numero_id">
+
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Fecha de Nacimiento del o la productora</ion-label>
+      <ion-datetime type="date" 
+        displayFormat="MM DD YY" placeholder="Select Date"
+        formControlName="fecha_nacimiento" 
+      ></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>Genero</ion-label>
+      <ion-select placeholder="Sexo"
+      formControlName="genero" 
+      >
+        <ion-select-option value="f">Femenino</ion-select-option>
+        <ion-select-option value="m">Masculino</ion-select-option>
+        <ion-select-option value="o">Otro</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Código del Productor</ion-label>
+      <ion-input formControlName="lote_id"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Número de teléfono convencional:</ion-label>
+      <ion-input formControlName="telefono_convencional" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Número de teléfono celular:</ion-label>
+      <ion-input formControlName="telefono_celular"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Nivel de Educación</ion-label>
+      <ion-select placeholder="Selecciones la opción que aplique a usted"
+        formControlName="nivel_educacion"
+      >
+        <ion-select-option value=1>Primaria - Escuela</ion-select-option>
+        <ion-select-option value=2>Secundaria - Colegio</ion-select-option>
+        <ion-select-option value=2>Tercer Nivel - Universidad</ion-select-option>
+        <ion-select-option value=4>Cuarto Nivel o Superior - Maestría, Doctorado</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Asociatividad</ion-label>
+      <ion-select placeholder="¿Pertenece a alguna asociación o gremio?"
+        formControlName="asocia_gremio"
+      >
+        <ion-select-option *ngFor="let b of binary" value={{b.value}}>{{b.label}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Nombre de la asociación o gremio:</ion-label>
+      <ion-input formControlName="nombre_aso_gremio">
+
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Provincia</ion-label>
+      <ion-select placeholder="Escoja:"
+        formControlName="provincia_prod"
+      >
+        <ion-select-option *ngFor="let p of states" value={{p.value}}>{{p.label}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Cantón:</ion-label>
+      <ion-input formControlName="canton_productor"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Parroquia:</ion-label>
+      <ion-input formControlName="parroquia_productor" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Nombre de su Comunidad o Recinto:</ion-label>
+      <ion-input formControlName="comunidad_recinto" ></ion-input>
+    </ion-item>
+    <ion-button type="submit"  [disabled]="!productor.valid">Guardar</ion-button>
+  </form>
+</ion-content>

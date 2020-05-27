@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>lote</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="lote"  (ngSubmit)="LoteForm()">
+    <ion-item *ngFor="let q of questions">
+      <ion-label *ngIf="'geo' !== q.type && 'image' !== q.type" position="floating">{{ q.string }}</ion-label>
+      <ion-input formControlName="{{ q.name }}" *ngIf="'number' === q.type || 'string' === q.type" type="q.type"></ion-input>  
+      <ion-select formControlName="{{ q.name }}" *ngIf="'selection' === q.type">
+        <ion-select-option *ngFor="let o of q.options" value={{o.value}}>
+          {{o.label}}
+        </ion-select-option>
+      </ion-select>
+      <ion-datetime formControlName="{{ q.name }}" *ngIf="'date' === q.type"
+        display-format="DD/MM/YYYY" 
+        picker-format="DD/MM/YYYY" 
+      >
+      </ion-datetime>
+      
+    </ion-item>
+    <ion-item button onclick="showDetail('${tech.title}')">
+      <ion-label>Fotografía 1</ion-label>
+    </ion-item>
+    <ion-item button onclick="showDetail('${tech.title}')">
+      <ion-label>Fotografía 2</ion-label>
+    </ion-item>
+    <ion-item button onclick="showDetail('${tech.title}')">
+      <ion-label>Fotografía 3</ion-label>
+    </ion-item>
+    <ion-item button onclick="showDetail('${tech.title}')">
+      <ion-label>Fotografía del Productor</ion-label>
+    </ion-item>
+  </form>
+</ion-content>

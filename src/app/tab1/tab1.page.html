@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Informacion General
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,24 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-title size="large">Productor</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-list>
+    <ion-list-header>
+        Productores por sincronizar
+    </ion-list-header>
+    <ion-item *ngFor="let p of ProductorItems | async" [routerLink]="['/tabs/details', p.id]">
+      <ion-label>
+        <h1>{{ p.numero_id }} </h1>
+        <p>{{ p.apellidos_productor }} {{ p.nombres_productor }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button [routerLink]="['/tabs/details']">
+      <ion-icon name="person-add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

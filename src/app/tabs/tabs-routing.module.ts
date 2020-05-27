@@ -8,6 +8,16 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
+        path: 'details/:id',
+        loadChildren: () => import('../productor-details/productor-details.module').then(m => m.ProductorDetailsModule)
+      },{
+        path: 'details',
+        loadChildren: () => import('../productor-details/productor-details.module').then(m => m.ProductorDetailsModule)
+      },{
+        path: 'lote',
+        loadChildren: () => import('../lote/lote.module').then(m => m.LotePageModule)
+      },
+      {
         path: 'tab1',
         loadChildren: () => import('../tab1/tab1.module').then(m => m.Tab1PageModule)
       },
