@@ -29,7 +29,7 @@
     "@ngrx/store-devtools": "^9.1.0",
     "cordova-android": "8.1.0",
     "core-js": "^2.5.4",
-    "dexie": "^2.0.4",
+    "dexie": "^3.2.2",
     "dexie-relationships": "^1.2.11",
     "ng-redux": "^4.4.1",
     "redux": "^4.0.0",
